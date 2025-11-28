@@ -1,0 +1,33 @@
+# Defines the Product type exposed by the GraphQL API.
+type Product {
+    id: ID!
+    name: String!
+    price: Float!
+}
+
+# Defines the input structure for creating or updating a product.
+input ProductInput {
+    name: String!
+    price: Float!
+}
+
+# The Query type defines all the available read operations (GETs)
+type Query {
+    # Fetches a single product by its ID.
+    productById(id: ID!): Product
+
+    # Fetches a list of all products.
+    allProducts: [Product!]!
+}
+
+# The Mutation type defines all the available write operations (POST, PUT, DELETE)
+type Mutation {
+    # Creates a new product.
+    createProduct(product: ProductInput!): Product!
+
+    # Updates an existing product by ID.
+    updateProduct(id: ID!, product: ProductInput!): Product
+
+    # Deletes a product by ID. Returns true if the deletion was successful (or if the ID didn't exist).
+    deleteProduct(id: ID!): Boolean!
+}
