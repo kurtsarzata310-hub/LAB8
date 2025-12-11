@@ -18,7 +18,7 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
-}
+}g
 
 repositories {
 	mavenCentral()
